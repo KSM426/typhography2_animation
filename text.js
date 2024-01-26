@@ -31,10 +31,10 @@ export class Text{
             (stageHeight - fontSize) / 2
         )
             
-        return this.dotPos(density, stageWidth, stageHeight, fontPos, fontSize);
+        return this.dotPos(density, stageWidth, stageHeight);
     }
 
-    dotPos(density, stageWidth, stageHeight, fontPos, fontSize) {
+    dotPos(density, stageWidth, stageHeight) {
         const imageData = this.ctx.getImageData(0, 0, stageWidth, stageHeight).data;
 
         const particles = [];
@@ -56,8 +56,6 @@ export class Text{
                     particles.push({
                         x: width,
                         y: height,
-                        c: (((width - (stageWidth - fontPos.width) / 2) + 
-                        (height - (stageHeight - fontSize) / 2)) / (fontPos.width + fontSize) * 255) |0
                     });
                 }
             }
